@@ -34,9 +34,9 @@ YOUR_VAULT_ADDR=http://stenio.vault.hashidemos.io:8200
 vault auth enable oidc
 
 vault write auth/oidc/config \
-    oidc_discovery_url="https://accounts.google.com"
-    oidc_client_id="YOUR_GOOGLE_API_CLIENT_ID",
-    oidc_client_secret="YOUR_GOOGLE_API_CLIENT_SECRET",
+    oidc_discovery_url="https://accounts.google.com" \
+    oidc_client_id="YOUR_GOOGLE_API_CLIENT_ID", \
+    oidc_client_secret="YOUR_GOOGLE_API_CLIENT_SECRET", \
     default_role="gmail"
 
 ```
@@ -45,7 +45,7 @@ vault write auth/oidc/config \
 vault write auth/oidc/role/gmail \
     user_claim="sub" \
     bound_audiences=[YOUR_GOOGLE_API_CLIENT_ID] \
-    allowed_redirect_uris=[http://YOUR_VAULT_ADDR//ui/vault/auth/oidc/oidc/callback]
+    allowed_redirect_uris=[http://YOUR_VAULT_ADDR//ui/vault/auth/oidc/oidc/callback] \
     policies=demo \
     ttl=1h
 ```
