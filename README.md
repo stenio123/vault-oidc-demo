@@ -1,5 +1,6 @@
 # Vault OpenID Demo
 Vault 1.1.0 introduced OIDC Redirect Flow Support, allowing authentication using browser. In this repository we describe the steps to integrate this feature to authenticate with Vault using a Gmail address.
+
 ![alt text](img/VaultOIDCCat.gif)
 
 ## Requirements
@@ -14,7 +15,9 @@ You can use any registrar, no specific requirements. If you decide to use AWS Ro
 3. Click on existing Hosted Zone
 4. Click Create Record Set
 5. Enter a name and update the IP value, as shown here:
+
 ![alt text](img/route53.png)
+
 6. Throughout this repo, assume that "YOUR_VAULT_ADDR" is this address, example: 
 ```
 YOUR_VAULT_ADDR=http://stenio.vault.hashidemos.io:8200
