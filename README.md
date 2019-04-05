@@ -24,10 +24,25 @@ YOUR_VAULT_ADDR=http://stenio.vault.hashidemos.io:8200
 ```
 
 ## Configure Google
-1. Go to https://console.developers.google.com/apis/credentials/, log in if needed
+Go to https://console.developers.google.com/apis/credentials/, log in if needed
+### Consent Screen
+1. Click on "Oauth Consent Screen tab":
+
+![alt text](img/consent.png)
+
+2. Enter Name, upload picture to show on consent screen (optional)
+3. Scopes - email, profile, openid
+4. On "authorized domains", enter the domain of your vault server. Example myvault.com
+5. Enter Application homepage and privacy link (optional)
+6. Press "Save"
+## Create Credentials
+1. Now click on the "Credentials" tab:
+
+![alt text](img/credentials.png)
+
 2. Click "Create credentials > OAuth ClientID"
 3. Select "Web application", give it a name
-4. On "Authorized redirect URLs", enter "http://YOUR_VAULT_ADDR//ui/vault/auth/oidc/oidc/callback"
+4. On "Authorized redirect URLs", enter "http://YOUR_VAULT_ADDR/ui/vault/auth/oidc/oidc/callback"
 5. Press Save
 6. In the next step you will use the Client ID and the Client Secret when configuring Vault
 
@@ -48,7 +63,7 @@ vault write auth/oidc/config \
 vault write auth/oidc/role/gmail \
     user_claim="sub" \
     bound_audiences=[YOUR_GOOGLE_API_CLIENT_ID] \
-    allowed_redirect_uris=[http://YOUR_VAULT_ADDR//ui/vault/auth/oidc/oidc/callback] \
+    allowed_redirect_uris=[http://YOUR_VAULT_ADDR/ui/vault/auth/oidc/oidc/callback] \
     policies=demo \
     ttl=1h
 ```
